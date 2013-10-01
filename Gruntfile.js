@@ -19,28 +19,27 @@ module.exports = function (grunt)
 
             concat: {
                 options: {
-                    banner: '<%= banner %><%= jqueryCheck %>',
+                    banner: '<%= jqueryCheck %>',
                     stripBanners: false
                 },
                 bootstrap: {
-                    expand: true,
-                    cwd: './bower_components/bootstrap/js/',
                     src: [
-                        'bootstrap-transition.js',
-                        'bootstrap-alert.js',
-                        'bootstrap-button.js',
-                        'bootstrap-carousel.js',
-                        'bootstrap-collapse.js',
-                        'bootstrap-dropdown.js',
-                        'bootstrap-modal.js',
-                        'bootstrap-tooltip.js',
-                        'bootstrap-popover.js',
-                        'bootstrap-scrollspy.js',
-                        'bootstrap-tab.js',
-                        'bootstrap-affix.js'
+                        './bower_components/bootstrap/js/bootstrap-transition.js',
+                        './bower_components/bootstrap/js/bootstrap-alert.js',
+                        './bower_components/bootstrap/js/bootstrap-button.js',
+                        './bower_components/bootstrap/js/bootstrap-carousel.js',
+                        './bower_components/bootstrap/js/bootstrap-collapse.js',
+                        './bower_components/bootstrap/js/bootstrap-dropdown.js',
+                        './bower_components/bootstrap/js/bootstrap-modal.js',
+                        './bower_components/bootstrap/js/bootstrap-tooltip.js',
+                        './bower_components/bootstrap/js/bootstrap-popover.js',
+                        './bower_components/bootstrap/js/bootstrap-scrollspy.js',
+                        './bower_components/bootstrap/js/bootstrap-tab.js',
+                        './bower_components/bootstrap/js/bootstrap-typeahead.js',
+                        './bower_components/bootstrap/js/bootstrap-affix.js'
                     ],
-//                    dest: 'dist/js/<%= pkg.name %>.js'
-                    dest: './dist/js/golden-bootstrap.js'
+                    dest: './dist/js/<%= pkg.name %>.js'
+//                    dest: './dist/js/golden-bootstrap.js'
                 }
             },
 
