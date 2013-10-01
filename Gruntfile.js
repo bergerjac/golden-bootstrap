@@ -38,8 +38,7 @@ module.exports = function (grunt)
                         './bower_components/bootstrap/js/bootstrap-typeahead.js',
                         './bower_components/bootstrap/js/bootstrap-affix.js'
                     ],
-                    dest: './dist/js/<%= pkg.name %>.js'
-//                    dest: './dist/js/golden-bootstrap.js'
+                    dest: './dist/js/bootstrap.js'
                 }
             },
 
