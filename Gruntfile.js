@@ -90,7 +90,7 @@ module.exports = function (grunt)
 
             watch: {
                 recess: {
-                    files: 'less/*.less',
+                    files: './less/*.less',
                     tasks: ['recess']
                 }
             }
@@ -120,29 +120,5 @@ module.exports = function (grunt)
     grunt.registerTask('dist', ['clean', 'dist-css', 'dist-fonts', 'dist-js']);
 
     // Default task
-    grunt.registerTask('default', ['dist', 'build-customizer']);
-
-    // task for building customizer
-    grunt.registerTask('build-customizer', 'Add scripts/less files to customizer.', function ()
-    {
-        var fs = require('fs')
-
-        function getFiles (type)
-        {
-            var files = {}
-            fs.readdirSync(type)
-                .filter(function (path)
-                        {
-                            return type == 'fonts' ? true : new RegExp('\\.' + type + '$').test(path)
-                        })
-                .forEach(function (path)
-                         {
-                             return files[path] = fs.readFileSync(type + '/' + path, 'utf8')
-                         })
-            return 'var __' + type + ' = ' + JSON.stringify(files) + '\n'
-        }
-
-        var files = getFiles('js') + getFiles('less') + getFiles('fonts')
-        fs.writeFileSync('docs-assets/js/raw-files.js', files)
-    });
+    grunt.registerTask('default', ['dist']);
 };
