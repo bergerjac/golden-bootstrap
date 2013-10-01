@@ -1,5 +1,3 @@
-if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery") }
-
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions

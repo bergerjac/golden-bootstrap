@@ -19,7 +19,7 @@ module.exports = function (grunt)
 
             concat: {
                 options: {
-                    banner: '<%= jqueryCheck %>',
+//                    banner: '<%= jqueryCheck %>',
                     stripBanners: false
                 },
                 bootstrap: {
@@ -44,12 +44,16 @@ module.exports = function (grunt)
 
             uglify: {
                 options: {
-                    banner: '<%= banner %>',
+                    banner: '/*!\n' +
+                            '* Bootstrap.js by @fat & @mdo\n' +
+                            '* Copyright 2012 Twitter, Inc.\n' +
+                            '* http://www.apache.org/licenses/LICENSE-2.0.txt\n' +
+                            '*/\n',
                     report: 'min'
                 },
                 bootstrap: {
                     src: ['<%= concat.bootstrap.dest %>'],
-                    dest: './dist/js/<%= pkg.name %>.min.js'
+                    dest: './dist/js/bootstrap.min.js'
                 }
             },
 
