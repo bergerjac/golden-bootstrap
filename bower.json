@@ -1,0 +1,17 @@
+{
+    "name": "golden-bootstrap",
+    "version": "2.3.2-beta",
+    "description": "Golden Bootstrap, but with the dependencies inverted.",
+    "main": ["./dist/js/bootstrap.js", "./dist/css/golden-bootstrap.css", "./dist/fonts/*"],
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "devDependencies": {
+        "bootstrap": "~2.3.2"
+    }
+}
