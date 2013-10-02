@@ -1,8 +1,7 @@
-//
-// Golden Bootstrap Mixins
 // --------------------------------------------------
+// Golden Bootstrap Mixins
 
-#golden-bootstrap {
+#golden-bootstrap-core {
 
    // Fixed
    // --------------------------------------------------
@@ -149,13 +148,31 @@
       }
 
       @media (min-width: 768px) and (max-width: 979px) {
-         #golden-bootstrap > .fixed(@gridColumnWidth768, @gridGutterWidth768);
-         #golden-bootstrap > .input(@gridColumnWidth768, @gridGutterWidth768);
+         #golden-bootstrap-core > .fixed(@gridColumnWidth768, @gridGutterWidth768);
+         #golden-bootstrap-core > .input(@gridColumnWidth768, @gridGutterWidth768);
       }
 
       @media (min-width: 1200px) {
-         #golden-bootstrap > .fixed(@gridColumnWidth1200, @gridGutterWidth1200);
-         #golden-bootstrap > .input(@gridColumnWidth1200, @gridGutterWidth1200);
+         #golden-bootstrap-core > .fixed(@gridColumnWidth1200, @gridGutterWidth1200);
+         #golden-bootstrap-core > .input(@gridColumnWidth1200, @gridGutterWidth1200);
       }
+
+      /*!
+       * [END] Golden Bootstrap Responsive
+       */
+   }
+}
+
+#golden-bootstrap {
+   .refine(@gridColumnWidth, @gridGutterWidth) {
+      #golden-bootstrap-core > .fixed(@gridColumnWidth, @gridGutterWidth);
+
+      #golden-bootstrap-core > .input(@gridColumnWidth, @gridGutterWidth);
+
+      #golden-bootstrap-core > .fluid();
+
+      /*!
+       * [END] Golden Bootstrap
+       */
    }
 }

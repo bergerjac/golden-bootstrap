@@ -63,13 +63,29 @@ module.exports = function (grunt)
                     banner: '<%= banner %>'
                 },
                 bootstrap: {
-                    src: ['./less/golden-bootstrap.less'],
-                    dest: './dist/css/<%= pkg.name %>.css'
+                    files: [
+                        {
+                            expand: true,
+                            cwd: './less/',
+                            src: ['**/golden-bootstrap*.less'],
+                            dest: './dist/css/',
+                            ext: '.css'
+                        },
+                        {
+                            expand: true,
+                            cwd: './ext/',
+                            src: ['**/golden-*.less'],
+                            dest: './ext/css/',
+                            ext: '.css'
+                        }
+                    ]
                 },
                 min: {
                     options: { compress: true },
-                    src: ['./less/golden-bootstrap.less'],
-                    dest: './dist/css/<%= pkg.name %>.min.css'
+                    files: {
+                        './dist/css/bootstrap.min.css': './less/golden-bootstrap.less'
+
+                    }
                 }
             },
 
