@@ -1,11 +1,4 @@
 /*!
-* Golden Bootstrap v2.3.2-untested
-*/
-/*!
- * [START] Golden Bootstrap
- */
-
-/*!
  * Bootstrap Responsive v2.3.2
  *
  * Copyright 2013 Twitter, Inc
@@ -1115,6 +1108,17 @@
   }
 }
 
+/*!
+ * [START] Golden Bootstrap Responsive
+ *
+ * Golden Bootstrap v1.61803399
+ *
+ * Licensed under the Apache License v2.0
+ *
+ * A quick project by Philippe Dionne (http://phildionne.com)
+ * Much love to @mdo, @fat and every collaborators to Twitter Bootstrap
+ */
+
 @media (max-width: 767px) {
   [class*="span"] .row .golden-small,
   [class*="span"] .row-fluid .golden-small,
@@ -1733,5 +1737,5 @@
 }
 
 /*!
-       * [END] Golden Bootstrap Responsive
-       */
+ * [END] Golden Bootstrap Responsive
+ */

@@ -8,7 +8,7 @@ module.exports = function (grunt)
             // metadata
             pkg: grunt.file.readJSON('package.json'),
             banner: '/*!\n' +
-                    '* Golden Bootstrap v<%= pkg.version %>\n' +
+                    '' +
                     '*/\n',
             jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery") }\n\n',
 
@@ -19,73 +19,73 @@ module.exports = function (grunt)
 
             concat: {
                 options: {
-//                    banner: '<%= jqueryCheck %>',
+                    //                    banner: '<%= jqueryCheck %>',
                     stripBanners: false
                 },
                 bootstrap: {
-                    src: [
-                        './bower_components/bootstrap/js/bootstrap-transition.js',
-                        './bower_components/bootstrap/js/bootstrap-alert.js',
-                        './bower_components/bootstrap/js/bootstrap-button.js',
-                        './bower_components/bootstrap/js/bootstrap-carousel.js',
-                        './bower_components/bootstrap/js/bootstrap-collapse.js',
-                        './bower_components/bootstrap/js/bootstrap-dropdown.js',
-                        './bower_components/bootstrap/js/bootstrap-modal.js',
-                        './bower_components/bootstrap/js/bootstrap-tooltip.js',
-                        './bower_components/bootstrap/js/bootstrap-popover.js',
-                        './bower_components/bootstrap/js/bootstrap-scrollspy.js',
-                        './bower_components/bootstrap/js/bootstrap-tab.js',
-                        './bower_components/bootstrap/js/bootstrap-typeahead.js',
-                        './bower_components/bootstrap/js/bootstrap-affix.js'
-                    ],
-                    dest: './dist/js/bootstrap.js'
+                    files: [
+                        {// bootstrap JS
+                            src: [
+                                './bower_components/bootstrap/js/bootstrap-transition.js',
+                                './bower_components/bootstrap/js/bootstrap-alert.js',
+                                './bower_components/bootstrap/js/bootstrap-button.js',
+                                './bower_components/bootstrap/js/bootstrap-carousel.js',
+                                './bower_components/bootstrap/js/bootstrap-collapse.js',
+                                './bower_components/bootstrap/js/bootstrap-dropdown.js',
+                                './bower_components/bootstrap/js/bootstrap-modal.js',
+                                './bower_components/bootstrap/js/bootstrap-tooltip.js',
+                                './bower_components/bootstrap/js/bootstrap-popover.js',
+                                './bower_components/bootstrap/js/bootstrap-scrollspy.js',
+                                './bower_components/bootstrap/js/bootstrap-tab.js',
+                                './bower_components/bootstrap/js/bootstrap-typeahead.js',
+                                './bower_components/bootstrap/js/bootstrap-affix.js'
+                            ],
+                            dest: './dist/js/bootstrap.js'
+                        }
+                    ]
                 }
             },
 
             uglify: {
                 options: {
                     banner: '/*!\n' +
-                            '* Bootstrap.js by @fat & @mdo\n' +
-                            '* Copyright 2012 Twitter, Inc.\n' +
-                            '* http://www.apache.org/licenses/LICENSE-2.0.txt\n' +
-                            '*/\n',
+                            ' * Bootstrap.js by @fat & @mdo\n' +
+                            ' * Copyright 2012 Twitter, Inc.\n' +
+                            ' * http://www.apache.org/licenses/LICENSE-2.0.txt\n' +
+                            ' */\n',
                     report: 'min'
                 },
                 bootstrap: {
-                    src: ['<%= concat.bootstrap.dest %>'],
-                    dest: './dist/js/bootstrap.min.js'
+                    './dist/js/bootstrap.min.js': ['<%= concat.bootstrap.files.dest %>']
                 }
             },
 
             recess: {
                 options: {
-                    compile: true,
-                    banner: '<%= banner %>'
+                    compile: true
                 },
                 bootstrap: {
                     files: [
-                        {
-                            expand: true,
-                            cwd: './less/',
-                            src: ['**/golden-bootstrap*.less'],
-                            dest: './dist/css/',
-                            ext: '.css'
-                        },
-                        {
+                        {// ./ext/golden*.less -> ./ext/css/[filename].css
                             expand: true,
                             cwd: './ext/',
-                            src: ['**/golden-*.less'],
-                            dest: './ext/css/',
+                            src: ['**/golden*.less'],
+                            dest: './dist/css/',
                             ext: '.css'
                         }
                     ]
                 },
                 min: {
                     options: { compress: true },
-                    files: {
-                        './dist/css/bootstrap.min.css': './less/golden-bootstrap.less'
-
-                    }
+                    files: [
+                        {// ./ext/golden*.less -> ./ext/css/[filename].min.css
+                            expand: true,
+                            cwd: './ext/',
+                            src: ['**/golden*.less'],
+                            dest: './dist/css/',
+                            ext: '.min.css'
+                        }
+                    ]
                 }
             },
 
@@ -112,7 +112,6 @@ module.exports = function (grunt)
             }
         }
     );
-
 
     // plugins
     grunt.loadNpmTasks('grunt-contrib-clean');
