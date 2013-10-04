@@ -23,26 +23,37 @@ module.exports = function (grunt)
                     stripBanners: false
                 },
                 bootstrap: {
-                    files: [
-                        {// bootstrap JS
-                            src: [
-                                './bower_components/bootstrap/js/bootstrap-transition.js',
-                                './bower_components/bootstrap/js/bootstrap-alert.js',
-                                './bower_components/bootstrap/js/bootstrap-button.js',
-                                './bower_components/bootstrap/js/bootstrap-carousel.js',
-                                './bower_components/bootstrap/js/bootstrap-collapse.js',
-                                './bower_components/bootstrap/js/bootstrap-dropdown.js',
-                                './bower_components/bootstrap/js/bootstrap-modal.js',
-                                './bower_components/bootstrap/js/bootstrap-tooltip.js',
-                                './bower_components/bootstrap/js/bootstrap-popover.js',
-                                './bower_components/bootstrap/js/bootstrap-scrollspy.js',
-                                './bower_components/bootstrap/js/bootstrap-tab.js',
-                                './bower_components/bootstrap/js/bootstrap-typeahead.js',
-                                './bower_components/bootstrap/js/bootstrap-affix.js'
-                            ],
-                            dest: './dist/js/bootstrap.js'
-                        }
-                    ]
+                    src: [// bootstrap JS
+                        './bower_components/bootstrap/js/bootstrap-transition.js',
+                        './bower_components/bootstrap/js/bootstrap-alert.js',
+                        './bower_components/bootstrap/js/bootstrap-button.js',
+                        './bower_components/bootstrap/js/bootstrap-carousel.js',
+                        './bower_components/bootstrap/js/bootstrap-collapse.js',
+                        './bower_components/bootstrap/js/bootstrap-dropdown.js',
+                        './bower_components/bootstrap/js/bootstrap-modal.js',
+                        './bower_components/bootstrap/js/bootstrap-tooltip.js',
+                        './bower_components/bootstrap/js/bootstrap-popover.js',
+                        './bower_components/bootstrap/js/bootstrap-scrollspy.js',
+                        './bower_components/bootstrap/js/bootstrap-tab.js',
+                        './bower_components/bootstrap/js/bootstrap-typeahead.js',
+                        './bower_components/bootstrap/js/bootstrap-affix.js'
+                    ],
+                    dest: './dist/js/bootstrap.js'
+                }
+            },
+
+            copy: {
+                fonts: {
+                    expand: true,
+                    cwd: './bower_components/bootstrap/img/',
+                    src: ['*.png'],
+                    dest: 'dist/img/'
+                },
+                js: {
+                    expand: true,
+                    cwd: './bower_components/jquery/',
+                    src: ['jquery.js', 'jquery.min.js'],
+                    dest: './dist/js/'
                 }
             },
 
@@ -56,7 +67,9 @@ module.exports = function (grunt)
                     report: 'min'
                 },
                 bootstrap: {
-                    './dist/js/bootstrap.min.js': ['<%= concat.bootstrap.files.dest %>']
+                    files: {
+                        './dist/js/bootstrap.min.js': ['<%= concat.bootstrap.dest %>']
+                    }
                 }
             },
 
@@ -86,21 +99,6 @@ module.exports = function (grunt)
                             ext: '.min.css'
                         }
                     ]
-                }
-            },
-
-            copy: {
-                fonts: {
-                    expand: true,
-                    cwd: './bower_components/bootstrap/img/',
-                    src: ['*.png'],
-                    dest: 'dist/img/'
-                },
-                js: {
-                    expand: true,
-                    cwd: './bower_components/jquery/',
-                    src: ['jquery.js', 'jquery.min.js'],
-                    dest: './dist/js/'
                 }
             },
 
