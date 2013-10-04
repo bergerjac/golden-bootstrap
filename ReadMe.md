@@ -1,4 +1,4 @@
-this is a near clone of the 'original' [Golden Bootstrap](https://github.com/phildionne/golden-bootstrap/#golden-bootstrap).  there were a few [issues](/#original-Golden-Bootstrap-Issues).
+this is a near clone of the 'original' [Golden Bootstrap](https://github.com/phildionne/golden-bootstrap/#golden-bootstrap).  there were a few issues.
 
 ## QuickStart
 
@@ -6,7 +6,7 @@ this is a near clone of the 'original' [Golden Bootstrap](https://github.com/phi
 2. reference desired `dist/` files in HTML (see [Bootstrap Getting Started](http://getbootstrap.com/2.3.2/getting-started.html#html-template))
 3. use Golden Bootstrap css rules in HTML (see [Golden Bootstrap docs](http://phildionne.github.com/golden-bootstrap#fixed))
 
-note: Bootstrap CSS is already compiled into `dist/golden-*strap` CSS files  
+note: Bootstrap CSS is already compiled into `dist/golden-*strap*.css` files  
 note: there are two pre-compiled sets of Bootstrap: Bootstrap and Flatstrap
 
 ## Customize
