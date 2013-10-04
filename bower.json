@@ -2,7 +2,9 @@
     "name": "golden-bootstrap",
     "version": "2.3.2-untested",
     "description": "Golden Bootstrap, but with the dependencies inverted.",
-    "main": ["./dist/**/*"],
+    "main": [
+        "./dist/**/*"
+    ],
     "private": true,
     "ignore": [
         "**/.*",
@@ -12,6 +14,7 @@
         "tests"
     ],
     "devDependencies": {
-        "bootstrap": "~2.3.2"
+        "bootstrap": "~2.3.2",
+        "flatstrap": "git://github.com/immense/flatstrap.git#0.3.1"
     }
 }

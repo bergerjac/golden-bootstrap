@@ -12,11 +12,12 @@ module.exports = function (grunt)
                     '*/\n',
             jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery") }\n\n',
 
-            // task config
+            // clean /dist/ folder
             clean: {
-                dist: ['./dist']// clean ./dist/ folder
+                dist: ['./dist/**/*']// clean ./dist/ folder
             },
 
+            // concat bootstrap JS files (take from bootstrap#2.3.2 Makefile)
             concat: {
                 options: {
                     //                    banner: '<%= jqueryCheck %>',
@@ -42,6 +43,7 @@ module.exports = function (grunt)
                 }
             },
 
+            // copy fonts, jquery.js
             copy: {
                 fonts: {
                     expand: true,
@@ -57,6 +59,7 @@ module.exports = function (grunt)
                 }
             },
 
+            // uglify bootstrap.js
             uglify: {
                 options: {
                     banner: '/*!\n' +
@@ -73,6 +76,7 @@ module.exports = function (grunt)
                 }
             },
 
+            // compile .less files to CSS; minify CSS files
             recess: {
                 options: {
                     compile: true
@@ -102,9 +106,10 @@ module.exports = function (grunt)
                 }
             },
 
+            // watch .less files in /ext/ folder
             watch: {
                 recess: {
-                    files: './less/*.less',
+                    files: './ext/*.less',
                     tasks: ['recess']
                 }
             }
